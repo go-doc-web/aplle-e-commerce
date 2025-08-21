@@ -33,7 +33,12 @@ const slideShowDivs = (): void => {
     slideShow.querySelectorAll(".slide");
 
   setInterval(() => {
+    if (slides.length === 0) {
+      console.error("Slides don't find");
+      return;
+    }
     slides[currentSlide].style.opacity = "0";
+
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].style.opacity = "1";
   }, 3000);
