@@ -75,6 +75,7 @@ body {
 }
 
 /*End of  NavBar */
+/* Banner */
 .section-1-banner {
   flex-direction: column;
 }
@@ -135,7 +136,29 @@ body {
     30% 0
   );
 }
-/* Banner */
-
 /* End of Banner */
+
+/* Slideshow */
+.slideshow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.slideshow .slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 1s ease;
+}
+/* End Slideshow */
 /*End of  Section-1 */
