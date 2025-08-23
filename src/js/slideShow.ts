@@ -41,7 +41,7 @@ const slideShowDivs = (): void => {
 
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].style.opacity = "1";
-  }, 3000);
+  }, 10000);
 };
 
 /* End of Slideshow */
