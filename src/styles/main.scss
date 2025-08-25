@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use './variables' as *;
 
 /* Common styles */
 * {
@@ -85,9 +85,10 @@ body {
   width: 30rem;
   height: 55rem;
   transform-style: preserve-3d;
-  transform: rotateY(91deg);
+  transform: roateX(0deg) rotateY(91deg) rotateZ(0deg);
   position: relative;
   top: -2rem;
+  transition: transform 350ms;
 }
 
 .front-side,
@@ -101,7 +102,7 @@ body {
 }
 .front-side::before,
 .front-side::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 10rem;
   position: absolute;
@@ -111,7 +112,7 @@ body {
 
 .back-side::before,
 .back-side::after {
-  content: "iPhone";
+  content: 'iPhone';
   width: 10rem;
   height: 100%;
   position: absolute;
