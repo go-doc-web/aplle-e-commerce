@@ -87,4 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // End of Controls
+
+  /* Script for Section 3 */
+
+  const section3Content = document.querySelector<HTMLElement>('.section-3-content');
+
+  function onScroll(): void {
+    if (!section3Content) return;
+
+    const viewportBottom = window.scrollY + window.innerHeight;
+    const sectionHalfY = section3Content.offsetTop + section3Content.offsetHeight / 2;
+
+    if (viewportBottom >= sectionHalfY) {
+      // один раз сработало — отписаться, чтобы не спамить
+      section3Content.classList.add('change');
+      console.log(section3Content);
+      window.removeEventListener('scroll', onScroll, { passive: true });
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  /* End ofSection 3 */
 });
