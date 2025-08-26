@@ -99,10 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectionHalfY = section3Content.offsetTop + section3Content.offsetHeight / 2;
 
     if (viewportBottom >= sectionHalfY) {
-      // один раз сработало — отписаться, чтобы не спамить
       section3Content.classList.add('change');
       console.log(section3Content);
-      window.removeEventListener('scroll', onScroll, { passive: true });
+      window.removeEventListener('scroll', onScroll);
     }
   }
 
