@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (viewportBottom >= sectionHalfY) {
       section3Content.classList.add('change');
-      console.log(section3Content);
+
       window.removeEventListener('scroll', onScroll);
     }
   }
