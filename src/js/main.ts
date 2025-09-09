@@ -1,6 +1,14 @@
 import slideShow from './slideShow';
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* Common JS */
+
+  document.querySelectorAll('.watch-control , .controls a').forEach(control => {
+    control.addEventListener('click', e => {
+      e.preventDefault();
+    });
+  });
+  /* End of Common JS */
   slideShow.slideShowDivs();
 
   // Controls
@@ -107,4 +115,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', onScroll);
   /* End ofSection 3 */
+
+  /* section-4 */
+  const watchBands = document.querySelector<HTMLElement>('.watch-bands');
+  const watchCases = document.querySelector<HTMLElement>('.watch-cases');
+  const watchTopControl = document.querySelector<HTMLElement>('.watch-top-control');
+  const watchBottomControl = document.querySelector<HTMLElement>('.watch-bootom-control');
+  const watchRightControl = document.querySelector<HTMLElement>('.watch-right-control');
+  const watchLeftControl = document.querySelector<HTMLElement>('.watch-left-control');
+
+  let axisY = 0;
+  let axisX = 0;
+
+  const hideControl = () => {
+    if (watchTopControl) {
+      if (axisY === -280) {
+        watchTopControl.classList.add('hide-control');
+      } else {
+        watchTopControl.classList.remove('hide-control');
+      }
+    }
+    if (watchBottomControl) {
+      if (axisY === 280) {
+        watchBottomControl.classList.add('hide-control');
+      } else {
+        watchBottomControl.classList.remove('hide-control');
+      }
+    }
+    if (watchRightControl) {
+      if (axisX === -280) {
+        watchRightControl.classList.add('hide-control');
+      } else {
+        watchRightControl.classList.remove('hide-control');
+      }
+    }
+    if (watchLeftControl) {
+      if (axisX === 280) {
+        watchLeftControl.classList.add('hide-control');
+      } else {
+        watchLeftControl.classList.remove('hide-control');
+      }
+    }
+  };
+
+  if (watchCases) {
+    if (watchTopControl) {
+      watchTopControl.addEventListener('click', () => {
+        watchCases.style.marginTop = `${(axisY -= 70)}rem`;
+
+        hideControl();
+      });
+    }
+    if (watchBottomControl) {
+      watchBottomControl.addEventListener('click', () => {
+        watchCases.style.marginTop = `${(axisY += 70)}rem`;
+
+        hideControl();
+      });
+    }
+  }
+  if (watchBands) {
+    if (watchRightControl) {
+      watchRightControl.addEventListener('click', () => {
+        watchBands.style.marginLeft = `${(axisX -= 70)}rem`;
+        hideControl();
+      });
+    }
+    if (watchLeftControl) {
+      watchLeftControl.addEventListener('click', () => {
+        watchBands.style.marginLeft = `${(axisX += 70)}rem`;
+        hideControl();
+      });
+    }
+  }
+
+  /* End of section-4 */
 });

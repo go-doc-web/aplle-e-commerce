@@ -597,6 +597,10 @@ body {
   position: absolute;
 }
 
+.watch-bands {
+  transition: margin-left 1000ms;
+}
+
 .watch-band-img {
   width: 35rem;
   height: 35rem;
@@ -605,12 +609,18 @@ body {
 
 .watch-cases {
   flex-direction: column;
+  transition: margin-top 1000ms;
 }
 .watch-case-img {
   width: 35rem;
   height: 35rem;
   object-fit: contain;
   display: flex;
+}
+
+.hide-control {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .watch-control {
